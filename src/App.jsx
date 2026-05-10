@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxE4qoKroy_bd1-CcU_RTYfzFB5c43bXkawirfVEi7oJ0IeEOwVg6Xdbtz4hiJzKXTZFA/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzUaJ1Zr5QgKUeEOl1uMiuckwutECPU5xJR1uv5IJg4NxyN-TtAJmTvJnwMEB_t04NaTQ/exec";
 
 const HAMBURGUESAS = [
   { id: "clasica", nombre: "Clásica", descripcion: "Por confirmar tras prueba de producto" },
