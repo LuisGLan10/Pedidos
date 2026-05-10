@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzUaJ1Zr5QgKUeEOl1uMiuckwutECPU5xJR1uv5IJg4NxyN-TtAJmTvJnwMEB_t04NaTQ/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzeNN6gK9_pZhmKT3CeTBaMvHrffLQ5dRKbHyQMNGojRloCtA1TS4ZCFDE1peHqyrKewA/exec";
 
 const HAMBURGUESAS = [
   { id: "clasica", nombre: "Clásica", descripcion: "Por confirmar tras prueba de producto" },
@@ -47,11 +47,20 @@ export default function App() {
     };
 
     try {
-      await fetch(APPS_SCRIPT_URL, {
-        method: "POST",
+      const params = new URLSearchParams({
+        id: order.id,
+        nombre: order.nombre,
+        whatsapp: order.whatsapp,
+        hamburguesa: order.hamburguesa,
+        cantidad: order.cantidad,
+        observaciones: order.observaciones || "",
+        pago: order.pago,
+        fechaPedido: order.fechaPedido,
+      });
+
+      await fetch(APPS_SCRIPT_URL + "?" + params.toString(), {
+        method: "GET",
         mode: "no-cors",
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify(order),
       });
     } catch (_) {}
 
